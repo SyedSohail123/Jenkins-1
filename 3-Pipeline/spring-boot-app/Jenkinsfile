@@ -48,8 +48,8 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                     sh '''
-                        git config user.email "sohail.xyz@gmail.com"
-                        git config user.name "Syed Sohail"
+                        git config --global user.email "sohail.xyz@gmail.com"
+                        git config --global user.name "Syed Sohail"
                         git pull --rebase https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git main
                         sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" 3-Pipeline/spring-boot-app-manifests/deployment.yml
                         git add 3-Pipeline/spring-boot-app-manifests/deployment.yml
