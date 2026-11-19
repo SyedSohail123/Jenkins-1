@@ -28,7 +28,7 @@ pipeline {
         }
         stage ('Build and Push Docker Image') {
             environment {
-                DOCKER_IMAGE = "syedsohail321/java-app:${BUILD_NUMBER}"
+                DOCKER_IMAGE = "syedsohail321/jenkins-java-app:${BUILD_NUMBER}"
             }
             steps {
                 script {
