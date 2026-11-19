@@ -48,6 +48,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                     sh '''
+                        git config --global --add safe.directory ${WORKSPACE}
                         git config --global user.email "sohail.xyz@gmail.com"
                         git config --global user.name "Syed Sohail"
                         git pull --rebase https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git main
